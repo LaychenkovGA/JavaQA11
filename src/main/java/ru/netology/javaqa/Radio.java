@@ -3,13 +3,13 @@ package ru.netology.javaqa;
 public class Radio {
     private int currentRadioStation;
     private int soundVolume;
-    private int minRadioStation = 0;
-    private int maxRadioStation = 10;
+    private int zeroRadioStation = 0;
+    private int numberOfRadioStations = 10;
     private int minSoundVolume = 0;
     private int maxSoundVolume = 100;
 
-    public Radio(int maxRadioStation) {
-        this.maxRadioStation = maxRadioStation;
+    public Radio(int numberOfRadioStations) {
+        this.numberOfRadioStations = numberOfRadioStations;
     }
 
     public int getCurrentRadioStation() {
@@ -21,41 +21,29 @@ public class Radio {
     }
 
     public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation > maxRadioStation) {
+        if (currentRadioStation > numberOfRadioStations - 1) {
             return;
         }
-        if (currentRadioStation < minRadioStation) {
+        if (currentRadioStation < zeroRadioStation) {
             return;
         }
         this.currentRadioStation = currentRadioStation;
     }
 
-    public void next() {
-        int currentRadioStation = this.getCurrentRadioStation();
-        if (currentRadioStation == maxRadioStation) {
-            this.currentRadioStation = minRadioStation;
-            return;
+    public void setNextNumberStation() {
+        if (currentRadioStation < numberOfRadioStations - 1) {
+            currentRadioStation = currentRadioStation + 1;
+        } else {
+            currentRadioStation = 0;
         }
-        this.currentRadioStation++;
     }
 
-    public void prev() {
-        int currentRadioStation = this.getCurrentRadioStation();
-        if (currentRadioStation == minRadioStation) {
-            this.currentRadioStation = maxRadioStation;
-            return;
+    public void setPrevNumberStation() {
+        if (currentRadioStation > 0) {
+            currentRadioStation = currentRadioStation - 1;
+        } else {
+            currentRadioStation = numberOfRadioStations - 1;
         }
-        this.currentRadioStation--;
-    }
-
-    public void inputRadioStation(int RadioStation) {
-        if (RadioStation > maxRadioStation) {
-            return;
-        }
-        if (RadioStation < minRadioStation) {
-            return;
-        }
-        this.currentRadioStation = RadioStation;
     }
 
     public void setSoundVolume(int soundVolume) {

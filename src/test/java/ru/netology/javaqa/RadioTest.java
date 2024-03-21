@@ -8,11 +8,10 @@ public class RadioTest {
 
     @Test
     public void turnOnTheNextRadioStation() {
-        int includedStation = 10;
-        radioStations.setCurrentRadioStation(includedStation);
-        radioStations.next();
+        radioStations.setCurrentRadioStation(10);
+        radioStations.setNextNumberStation();
 
-        int expected = 0;
+        int expected = 1;
         int actual = radioStations.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
@@ -20,9 +19,8 @@ public class RadioTest {
 
     @Test
     public void turnOnTheNextRadioStation2() {
-        int includedStation = 5;
-        radioStations.setCurrentRadioStation(includedStation);
-        radioStations.next();
+        radioStations.setCurrentRadioStation(5);
+        radioStations.setNextNumberStation();
 
         int expected = 6;
         int actual = radioStations.getCurrentRadioStation();
@@ -32,11 +30,10 @@ public class RadioTest {
 
     @Test
     public void turnOnThePreviousRadioStation() {
-        int includedStation = 0;
-        radioStations.setCurrentRadioStation(includedStation);
-        radioStations.prev();
+        radioStations.setCurrentRadioStation(0);
+        radioStations.setPrevNumberStation();
 
-        int expected = 10;
+        int expected = 9;
         int actual = radioStations.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
@@ -44,9 +41,8 @@ public class RadioTest {
 
     @Test
     public void turnOnThePreviousRadioStation2() {
-        int includedStation = 5;
-        radioStations.setCurrentRadioStation(includedStation);
-        radioStations.prev();
+        radioStations.setCurrentRadioStation(5);
+        radioStations.setPrevNumberStation();
 
         int expected = 4;
         int actual = radioStations.getCurrentRadioStation();
@@ -56,12 +52,9 @@ public class RadioTest {
 
     @Test
     public void inputRadioStation() {
-        int radioStation = -1;
-        int includedStation = 3;
-        radioStations.setCurrentRadioStation(includedStation);
-        radioStations.inputRadioStation(radioStation);
+        radioStations.setCurrentRadioStation(15);
 
-        int expected = 3;
+        int expected = 0;
         int actual = radioStations.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
@@ -69,12 +62,9 @@ public class RadioTest {
 
     @Test
     public void inputRadioStation2() {
-        int radioStation = 11;
-        int includedStation = 5;
-        radioStations.setCurrentRadioStation(includedStation);
-        radioStations.inputRadioStation(radioStation);
+        radioStations.setCurrentRadioStation(-15);
 
-        int expected = 5;
+        int expected = 0;
         int actual = radioStations.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
