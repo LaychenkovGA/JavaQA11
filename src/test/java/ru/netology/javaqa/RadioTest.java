@@ -12,7 +12,7 @@ public class RadioTest {
         radioStations.setCurrentRadioStation(includedStation);
         radioStations.next();
 
-        int expected = 1;
+        int expected = 0;
         int actual = radioStations.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
@@ -36,7 +36,7 @@ public class RadioTest {
         radioStations.setCurrentRadioStation(includedStation);
         radioStations.prev();
 
-        int expected = 9;
+        int expected = 10;
         int actual = radioStations.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
